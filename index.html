@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Website resmi Seksi Publikasi dan Multimedia Biara Vokasionis Maumere." />
+<meta name="keywords" content="SDV, publikasi, multimedia, biara vokasionis, maumere, flores" />
+<title>Seksi Publikasi dan Multimedia | Biara Vokasionis Maumere</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { darkMode: 'class' };
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+/* =====================================
+   GLOBAL
+===================================== */
+* { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; transition: background-color .3s, color .3s; }
+
+/* =====================================
+   NAVBAR
+===================================== */
+.nav-link { position: relative; transition: color .3s; }
+.nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#0EA5E9; border-radius:2px; transition:width .3s; }
+.nav-link:hover::after { width:100%; }
+
+/* =====================================
+   MOBILE MENU
+===================================== */
+.mobile-menu { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.mobile-menu.open { max-height:600px; }
+.hamburger-line { transition: all .3s ease; }
+.hamburger.active .line1 { transform: translateY(7px) rotate(45deg); }
+.hamburger.active .line2 { opacity:0; }
+.hamburger.active .line3 { transform: translateY(-7px) rotate(-45deg); }
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+.fade-in { animation: fadeIn .8s ease-out both; }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+.float { animation: float 4s ease-in-out infinite; }
+.reveal { opacity:0; transform:translateY(30px); transition: opacity .8s, transform .8s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* =====================================
+   GALLERY
+===================================== */
+.gallery-item { cursor:pointer; overflow:hidden; position:relative; }
+.gallery-item img { transition: transform .5s; }
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item::after {
+  content:'\f00e'; font-family:'Font Awesome 6 Free'; font-weight:900;
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color:#fff; background:rgba(15,23,42,.45); opacity:0; transition:opacity .3s; font-size:1.25rem;
+}
+.gallery-item:hover::after { opacity:1; }
+
+/* =====================================
+   FLIPBOOK
+===================================== */
+@keyframes flipInRight { from{transform:perspective(1200px) rotateY(-90deg) scale(.9);opacity:0;} to{transform:perspective(1200px) rotateY(0) scale(1);opacity:1;} }
+@keyframes flipInLeft  { from{transform:perspective(1200px) rotateY(90deg) scale(.9);opacity:0;}  to{transform:perspective(1200px) rotateY(0) scale(1);opacity:1;} }
+.flip-next { animation: flipInRight .5s ease both; }
+.flip-prev { animation: flipInLeft .5s ease both; }
+
+/* =====================================
+   MODAL
+===================================== */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(15,23,42,.85);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display:none; align-items:center; justify-content:center; z-index:100; padding:1rem;
+}
+.modal-overlay.show { display:flex; animation: fadeIn .3s ease; }
+
+/* =====================================
+   TOAST
+===================================== */
+.toast-container {
+  position:fixed; top:80px; right:16px; z-index:9999;
+  display:flex; flex-direction:column; gap:8px; pointer-events:none;
+}
+.toast {
+  pointer-events:auto; min-width:240px; max-width:340px;
+  padding:12px 16px; border-radius:12px; color:#fff; font-size:14px; line-height:1.4;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+  animation: slideInRight .4s ease;
+  display:flex; align-items:flex-start; gap:8px;
+}
+@keyframes slideInRight { from{transform:translateX(120%);opacity:0;} to{transform:translateX(0);opacity:1;} }
+.toast.fadeOut { animation: fadeOutRight .4s ease both; }
+@keyframes fadeOutRight { from{transform:translateX(0);opacity:1;} to{transform:translateX(120%);opacity:0;} }
+.toast.success { background:#0EA5E9; }
+.toast.error   { background:#EF4444; }
+.toast.info    { background:#374151; }
+
+/* =====================================
+   CARD
+===================================== */
+.card { transition: transform .3s, box-shadow .3s, background-color .3s, border-color .3s; }
+
+/* =====================================
+   DARK MODE
+===================================== */
+html.dark { color-scheme: dark; }
+html.dark body { background:#0F172A; color:#E5E7EB; }
+
+/* =====================================
+   SCROLLBAR
+===================================== */
+::-webkit-scrollbar { width:8px; height:8px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:#7DD3FC; border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:#38BDF8; }
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+@media (max-width:640px) {
+  .toast-container { left:16px; right:16px; top:72px; }
+  .toast { min-width:unset; max-width:unset; width:100%; }
+}
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline:2px solid #0EA5E9; outline-offset:2px; border-radius:6px;
+}
+</style>
+</head>
+<body class="bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-200 font-sans antialiased">
+
+<!-- ============================================================
+     PUBLIC SITE
+============================================================ -->
+<div id="publicSite">
+
+  <!-- ============================================= -->
+  <!-- NAVBAR -->
+  <!-- ============================================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- LOGO SDV -->
+        <a href="#home" class="flex items-center gap-3">
+          <!-- ============================================= -->
+          <!-- LOGO HURUF "SDV" - BISA DIUBAH DI SINI -->
+          <!-- ============================================= -->
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
+               class="w-11 h-11 flex-shrink-0"
+               role="img" aria-label="Logo SDV">
+            <defs>
+              <linearGradient id="sdvGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38BDF8"/>
+                <stop offset="100%" stop-color="#0EA5E9"/>
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="32" fill="url(#sdvGrad1)"/>
+            <circle cx="32" cy="32" r="29" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+            <text x="32" y="42" text-anchor="middle"
+                  font-family="Inter, -apple-system, sans-serif"
+                  font-weight="900" font-size="21"
+                  fill="#FFFFFF" letter-spacing="0.5">SDV</text>
+          </svg>
+          <div class="leading-tight hidden sm:block">
+            <p class="font-bold text-sm text-slate-800 dark:text-white">Safari</p>
+            <p class="text-xs text-sky-600 dark:text-sky-400"> Multimedia</p>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden lg:flex items-center gap-8 text-sm font-medium">
+          <li><a href="#home" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Home</a></li>
+          <li><a href="#profil" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Profil</a></li>
+          <li><a href="#keahlian" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Keahlian</a></li>
+          <li><a href="#galeri" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Galeri</a></li>
+          <li><a href="#video" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Video</a></li>
+          <li><a href="#pengumuman" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Pengumuman</a></li>
+          <li><a href="#kontak" class="nav-link text-slate-700 dark:text-slate-200 hover:text-sky-500">Kontak</a></li>
+        </ul>
+
+        <div class="flex items-center gap-2">
+          <button class="theme-toggle-btn w-10 h-10 rounded-full flex items-center justify-center bg-sky-50 dark:bg-slate-800 text-sky-600 dark:text-sky-300 hover:scale-110 transition" aria-label="Ganti tema">
+            <i class="theme-icon fas fa-moon"></i>
+          </button>
+          <button id="hamburger" aria-label="Menu" class="hamburger lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-full bg-sky-50 dark:bg-slate-800">
+            <span class="hamburger-line line1 block w-5 h-0.5 bg-sky-600 dark:bg-sky-300"></span>
+            <span class="hamburger-line line2 block w-5 h-0.5 bg-sky-600 dark:bg-sky-300"></span>
+            <span class="hamburger-line line3 block w-5 h-0.5 bg-sky-600 dark:bg-sky-300"></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="mobile-menu lg:hidden">
+        <ul class="py-4 flex flex-col gap-1 text-sm font-medium">
+          <li><a href="#home" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Home</a></li>
+          <li><a href="#profil" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Profil</a></li>
+          <li><a href="#keahlian" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Keahlian</a></li>
+          <li><a href="#galeri" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Galeri</a></li>
+          <li><a href="#video" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Video</a></li>
+          <li><a href="#pengumuman" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Pengumuman</a></li>
+          <li><a href="#kontak" class="block px-4 py-3 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800">Kontak</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================= -->
+  <!-- HERO -->
+  <!-- ============================================= -->
+  <section id="home" class="pt-24 pb-16 sm:pt-28 sm:pb-20 bg-gradient-to-b from-sky-100 via-sky-50 to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+        <div class="fade-in">
+          <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300 mb-4">
+            Holy Family Vocationary Maumere
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-slate-900 dark:text-white">
+             SAFARI <br />
+            <span class="bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent">MULTIMEDIA</span>
+          </h1>
+          <p class="mt-2 text-sky-700 dark:text-sky-400 font-semibold">Biara Vokasionis Maumere</p>
+          <p class="mt-5 text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+            Wadah pelayanan kreatif dalam bidang publikasi, multimedia, desain digital,
+            dokumentasi, dan teknologi untuk mendukung karya pelayanan komunitas Holy Family Vocationary Maumere.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#keahlian" class="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-lg shadow-sky-500/30 transition hover:-translate-y-0.5">
+              <i class="fas fa-tools mr-2"></i>Lihat Keahlian
+            </a>
+            <a href="#galeri" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-sky-200 dark:border-slate-700 text-sky-700 dark:text-sky-300 font-semibold shadow-md transition hover:-translate-y-0.5 hover:bg-sky-50 dark:hover:bg-slate-700">
+              <i class="fas fa-images mr-2"></i>Lihat Galeri
+            </a>
+          </div>
+        </div>
+
+        <div class="fade-in flex justify-center">
+          <div class="float relative w-full max-w-md">
+            <div class="absolute -inset-4 bg-gradient-to-tr from-sky-300 to-sky-100 dark:from-sky-800 dark:to-slate-800 rounded-3xl blur-2xl opacity-60"></div>
+            <!-- ILUSTRASI HERO (SVG) -->
+            <div class="relative w-full rounded-3xl shadow-2xl bg-gradient-to-br from-sky-400 to-sky-600 dark:from-sky-700 dark:to-slate-800 aspect-[4/3] flex items-center justify-center overflow-hidden">
+              <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <g opacity="0.15">
+                  <circle cx="50" cy="40" r="30" fill="#fff"/>
+                  <circle cx="200" cy="150" r="50" fill="#fff"/>
+                </g>
+                <!-- Kamera -->
+                <rect x="60" y="70" width="120" height="80" rx="12" fill="#FFFFFF"/>
+                <rect x="95" y="60" width="50" height="18" rx="5" fill="#FFFFFF"/>
+                <circle cx="120" cy="110" r="26" fill="#0F172A"/>
+                <circle cx="120" cy="110" r="18" fill="#38BDF8"/>
+                <circle cx="120" cy="110" r="10" fill="#0F172A"/>
+                <circle cx="120" cy="110" r="4" fill="#7DD3FC"/>
+                <circle cx="165" cy="82" r="4" fill="#0EA5E9"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- TENTANG SEKSI -->
+  <!-- ============================================= -->
+  <section id="profil" class="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Tentang Seksi</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Seksi Publikasi dan Multimedia bertugas mendukung kegiatan Biara Vokasionis Maumere melalui berbagai bidang pelayanan kreatif dan teknologi.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-camera text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Dokumentasi</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-bullhorn text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Publikasi</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-palette text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Desain</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-print text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Digital Printing</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-code text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Programming</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-hashtag text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Media Sosial</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-video text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Video</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-camera-retro text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Fotografi</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-photo-film text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Multimedia</p>
+        </div>
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition text-center">
+          <i class="fas fa-microchip text-2xl text-sky-500 mb-2"></i><p class="font-semibold text-sm">Teknologi Informasi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PROFIL ANGGOTA -->
+  <!-- ============================================= -->
+  <section class="py-16 sm:py-20 bg-white dark:bg-slate-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Profil Anggota Seksi</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">Dua pribadi yang melayani dalam Seksi Publikasi dan Multimedia.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- KETUA -->
+        <div class="reveal card bg-gradient-to-b from-sky-50 to-white dark:from-slate-800 dark:to-slate-900 border border-sky-100 dark:border-slate-700 rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div id="fotoKetuaWrap" class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-lg bg-sky-100 flex items-center justify-center">
+            <!-- FOTO KETUA DIISI OTOMATIS DARI LOCALSTORAGE -->
+          </div>
+          <div class="mt-5 text-center">
+            <h3 id="namaKetua" class="text-lg font-bold text-slate-900 dark:text-white">NAMA KETUA</h3>
+            <p class="text-sm font-semibold text-sky-600 dark:text-sky-400">Ketua Seksi</p>
+            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Divisi : Desain dan fotografer.</p>
+          </div>
+        </div>
+
+        <!-- WAKIL -->
+        <div class="reveal card bg-gradient-to-b from-sky-50 to-white dark:from-slate-800 dark:to-slate-900 border border-sky-100 dark:border-slate-700 rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div id="fotoWakilWrap" class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-lg bg-sky-100 flex items-center justify-center">
+            <!-- FOTO WAKIL DIISI OTOMATIS DARI LOCALSTORAGE -->
+          </div>
+          <div class="mt-5 text-center">
+            <h3 id="namaWakil" class="text-lg font-bold text-slate-900 dark:text-white">NAMA WAKIL</h3>
+            <p class="text-sm font-semibold text-sky-600 dark:text-sky-400">Wakil Ketua</p>
+            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Divisi : Progaming dan Editing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- KEAHLIAN -->
+  <!-- ============================================= -->
+  <section id="keahlian" class="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Keahlian &amp; Pekerjaan Seksi</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        Berbagai pekerjaan yang dikerjakan oleh tim multimedia dan publikasi.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center mb-4">
+            <i class="fas fa-print text-2xl text-sky-600 dark:text-sky-400"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Digital Printing</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            Melaksanakan berbagai kebutuhan percetakan digital untuk mendukung kegiatan komunitas, pelayanan, acara, dan kebutuhan publikasi.
+          </p>
+          <ul class="mt-4 grid grid-cols-2 gap-2 text-sm">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Banner</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Spanduk</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Poster</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Brosur</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Undangan</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Sertifikat</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Stiker</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Kartu Nama</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Desain Promosi</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Cetak Foto</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center mb-4">
+            <i class="fas fa-code text-2xl text-sky-600 dark:text-sky-400"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Programming</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            Mengembangkan solusi teknologi sederhana untuk mendukung kebutuhan administrasi, informasi, publikasi, dan pelayanan.
+          </p>
+          <ul class="mt-4 grid grid-cols-2 gap-2 text-sm">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Website</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Sistem Informasi</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Landing Page</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Aplikasi Sederhana</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Database Lokal</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Pengelolaan Data</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-500 text-xs"></i>Automasi Sederhana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- GALERI -->
+  <!-- ============================================= -->
+  <section id="galeri" class="py-16 sm:py-20 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Galeri Foto</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">Buku foto digital Seksi Publikasi dan Multimedia.</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 mb-6 max-w-2xl mx-auto">
+        <input id="searchGaleri" type="text" placeholder="Cari foto..."
+               class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+        <select id="sortGaleri" class="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+        </select>
+      </div>
+
+      <div id="galeriGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
+
+      <div id="galeriEmpty" class="hidden text-center py-14">
+        <i class="fas fa-image text-5xl text-sky-200 dark:text-slate-700 mb-3"></i>
+        <p class="text-slate-500 dark:text-slate-400">Belum ada foto yang dipublikasikan.</p>
+        <p class="text-xs text-slate-400 mt-1">Upload melalui Admin Panel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- VIDEO -->
+  <!-- ============================================= -->
+  <section id="video" class="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Video Kegiatan</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">Dokumentasi video dari berbagai kegiatan seksi.</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 mb-6 max-w-2xl mx-auto">
+        <input id="searchVideo" type="text" placeholder="Cari video..."
+               class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+        <select id="sortVideo" class="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+        </select>
+      </div>
+
+      <div id="videoGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+      <div id="videoEmpty" class="hidden text-center py-14">
+        <i class="fas fa-video text-5xl text-sky-200 dark:text-slate-700 mb-3"></i>
+        <p class="text-slate-500 dark:text-slate-400">Belum ada video yang dipublikasikan.</p>
+        <p class="text-xs text-slate-400 mt-1">Upload melalui Admin Panel (maks 5 MB).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PENGUMUMAN -->
+  <!-- ============================================= -->
+  <section id="pengumuman" class="py-16 sm:py-20 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Pengumuman</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">Informasi dan pengumuman terbaru dari seksi.</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 mb-6 max-w-2xl mx-auto">
+        <input id="searchPengumuman" type="text" placeholder="Cari pengumuman..."
+               class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+        <select id="sortPengumuman" class="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+        </select>
+      </div>
+
+      <div id="pengumumanGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+      <div id="pengumumanEmpty" class="hidden text-center py-14">
+        <i class="fas fa-bullhorn text-5xl text-sky-200 dark:text-slate-700 mb-3"></i>
+        <p class="text-slate-500 dark:text-slate-400">Belum ada pengumuman.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- KONTAK -->
+  <!-- ============================================= -->
+  <section id="kontak" class="py-16 sm:py-20 bg-gradient-to-b from-sky-50 to-white dark:from-slate-900 dark:to-slate-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal card bg-white dark:bg-slate-800 border border-sky-100 dark:border-slate-700 rounded-3xl shadow-lg p-8 sm:p-10 text-center">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-sky-500 to-sky-300 flex items-center justify-center shadow-lg mb-4">
+          <i class="fab fa-whatsapp text-white text-3xl"></i>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Hubungi Kami</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">Silakan hubungi admin melalui WhatsApp.</p>
+        <p class="mt-4 text-lg font-bold text-sky-600 dark:text-sky-400">0812-3882-4446</p>
+
+        <a href="https://wa.me/6281238824446" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 mt-6 px-7 py-3 rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow-lg shadow-green-500/30 hover:-translate-y-0.5 transition">
+          <i class="fab fa-whatsapp text-xl"></i>Chat via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- FOOTER -->
+  <!-- ============================================= -->
+  <footer class="bg-slate-900 text-slate-300 pt-14 pb-8 dark:bg-black/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <!-- LOGO SDV FOOTER -->
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11 flex-shrink-0" role="img" aria-label="Logo SDV">
+            <defs>
+              <linearGradient id="sdvGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38BDF8"/>
+                <stop offset="100%" stop-color="#0EA5E9"/>
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="32" fill="url(#sdvGrad2)"/>
+            <circle cx="32" cy="32" r="29" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+            <text x="32" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="21" fill="#FFFFFF" letter-spacing="0.5">SDV</text>
+          </svg>
+          <div>
+            <p class="font-bold text-white text-sm">Seksi Publikasi &amp; Multimedia</p>
+            <p class="text-xs text-sky-400">Biara Vokasionis Maumere</p>
+          </div>
+        </div>
+        <p class="text-xs leading-relaxed text-slate-400">
+          Wadah pelayanan kreatif dalam bidang publikasi, multimedia, desain digital, dokumentasi, dan teknologi.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3 text-sm">Alamat</h4>
+        <p class="text-xs leading-relaxed text-slate-400">
+          Maumere, Flores,<br />Nusa Tenggara Timur, Indonesia
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3 text-sm">Media Sosial</h4>
+        <ul class="space-y-2 text-xs">
+          <!-- GANTI LINK TIKTOK DI SINI -->
+          <li><a href="#" class="hover:text-sky-400 transition"><i class="fab fa-tiktok mr-2"></i>TikTok</a></li>
+          <!-- GANTI LINK FACEBOOK DI SINI -->
+          <li><a href="#" class="hover:text-sky-400 transition"><i class="fab fa-facebook mr-2"></i>Facebook</a></li>
+          <!-- GANTI LINK INSTAGRAM DI SINI -->
+          <li><a href="#" class="hover:text-sky-400 transition"><i class="fab fa-instagram mr-2"></i>Instagram</a></li>
+          <!-- GANTI LINK YOUTUBE DI SINI -->
+          <li><a href="#" class="hover:text-sky-400 transition"><i class="fab fa-youtube mr-2"></i>YouTube</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3 text-sm">Kontak</h4>
+        <a href="https://wa.me/6281238824446" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 text-xs text-green-400 hover:text-green-300 transition">
+          <i class="fab fa-whatsapp"></i>0812-3882-4446
+        </a>
+        <p class="mt-4 text-xs text-slate-500">Butuh akses admin?</p>
+        <a href="#admin" class="inline-block mt-1 text-xs text-sky-400 hover:text-sky-300 underline">Admin Login</a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-slate-800 text-center">
+      <p class="text-xs text-slate-500">
+        &copy; 2026 Seksi Publikasi dan Multimedia — Biara Vokasionis Maumere
+      </p>
+    </div>
+  </footer>
+
+  <!-- MODAL GALERI -->
+  <div id="galleryModal" class="modal-overlay">
+    <div class="relative w-full max-w-4xl">
+      <button id="closeGallery" aria-label="Tutup"
+              class="absolute -top-3 -right-3 sm:top-2 sm:right-2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-white shadow-lg hover:bg-sky-500 hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+        <div id="galleryImageWrap" class="relative bg-slate-900 aspect-[4/3] flex items-center justify-center overflow-hidden">
+          <img id="galleryImage" src="" alt="Foto Galeri" class="max-h-full max-w-full object-contain" />
+        </div>
+        <div class="p-4 sm:p-5">
+          <h3 id="galleryTitle" class="font-bold text-lg text-slate-900 dark:text-white"></h3>
+          <p id="galleryDesc" class="text-sm text-slate-600 dark:text-slate-400 mt-1"></p>
+          <p id="galleryDate" class="text-xs text-sky-500 mt-2"></p>
+          <div class="flex justify-between items-center mt-4">
+            <button id="prevPhoto" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-sky-100 dark:hover:bg-slate-600 transition">&larr; Sebelumnya</button>
+            <span id="galleryCounter" class="text-xs text-slate-500 dark:text-slate-400"></span>
+            <button id="nextPhoto" class="px-4 py-2 rounded-xl bg-sky-500 text-white text-sm font-medium hover:bg-sky-600 transition">Selanjutnya &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PENGUMUMAN -->
+  <div id="pengumumanModal" class="modal-overlay">
+    <div class="relative w-full max-w-lg">
+      <button id="closePengumuman" aria-label="Tutup"
+              class="absolute -top-3 -right-3 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-sky-500 hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-2xl">
+        <span id="pengumumanKategori" class="inline-block px-2 py-0.5 text-xs rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300"></span>
+        <h3 id="pengumumanJudul" class="text-xl font-bold mt-3 text-slate-900 dark:text-white"></h3>
+        <p id="pengumumanTanggal" class="text-xs text-sky-500 mt-1"></p>
+        <p id="pengumumanIsi" class="mt-4 text-sm text-slate-600 dark:text-slate-300 whitespace-pre-line"></p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#publicSite -->
+
+
+<!-- ============================================================
+     ADMIN SITE
+============================================================ -->
+<div id="adminSite" class="hidden">
+
+  <!-- LOGIN -->
+  <section id="loginScreen" class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-sky-100 via-sky-50 to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
+    <div class="w-full max-w-md card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8">
+      <div class="text-center mb-6">
+        <!-- LOGO SDV LOGIN -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 mx-auto mb-3" role="img" aria-label="Logo SDV">
+          <defs>
+            <linearGradient id="sdvGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="100%" stop-color="#0EA5E9"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="32" fill="url(#sdvGrad3)"/>
+          <circle cx="32" cy="32" r="29" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+          <text x="32" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="21" fill="#FFFFFF" letter-spacing="0.5">SDV</text>
+        </svg>
+        <h1 class="text-xl font-bold text-slate-900 dark:text-white">Admin Panel</h1>
+        <p class="text-sm text-sky-600 dark:text-sky-400">Seksi Publikasi dan Multimedia</p>
+      </div>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="username" class="block text-sm font-medium mb-1">Username</label>
+          <input id="username" type="text" required
+                 class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium mb-1">Password</label>
+          <input id="password" type="password" required
+                 class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-sky-600 text-white font-semibold shadow-lg shadow-sky-500/30 hover:-translate-y-0.5 transition">
+          <i class="fas fa-sign-in-alt mr-2"></i>Login
+        </button>
+      </form>
+      
+            <p class="text-xs text-slate-500 text-center mt-5">
+        <a href="#" id="backFromLogin" class="hover:text-sky-500">
+          <i class="fas fa-arrow-left mr-1"></i>Kembali ke Website
+        </a>
+      </p>
+
+      <!-- TOMBOL DARURAT: bersihkan penyimpanan jika penuh -->
+      <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+        <button id="emergencyClearBtn" type="button"
+                class="w-full py-2 rounded-xl bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-semibold hover:bg-red-100 transition">
+          <i class="fas fa-broom mr-1"></i>Bersihkan Penyimpanan (Reset Total)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboardScreen" class="hidden min-h-screen">
+
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/85 dark:bg-slate-900/85 border-b border-slate-200 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 flex-shrink-0" role="img" aria-label="Logo SDV">
+            <defs>
+              <linearGradient id="sdvGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38BDF8"/>
+                <stop offset="100%" stop-color="#0EA5E9"/>
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="32" fill="url(#sdvGrad4)"/>
+            <text x="32" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="21" fill="#FFFFFF">SDV</text>
+          </svg>
+          <div class="leading-tight">
+            <p class="text-sm font-bold text-slate-800 dark:text-white">Admin Panel</p>
+            <p class="text-xs text-sky-500">SDV Multimedia</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="theme-toggle-btn w-9 h-9 rounded-full bg-sky-50 dark:bg-slate-800 text-sky-600 dark:text-sky-300 flex items-center justify-center hover:scale-110 transition" aria-label="Ganti tema">
+            <i class="theme-icon fas fa-moon"></i>
+          </button>
+          <button id="logoutBtn" class="px-3 py-2 text-xs font-semibold rounded-xl bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-100 transition">
+            <i class="fas fa-sign-out-alt mr-1"></i>Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+      <!-- TAB MENU -->
+      <nav class="flex gap-2 overflow-x-auto pb-2 mb-6">
+        <button data-tab="dashboard" class="tab-btn px-4 py-2 text-sm font-semibold rounded-xl whitespace-nowrap bg-sky-500 text-white">
+          <i class="fas fa-chart-line mr-1"></i>Dashboard
+        </button>
+        <button data-tab="anggota" class="tab-btn px-4 py-2 text-sm font-semibold rounded-xl whitespace-nowrap bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-slate-700">
+          <i class="fas fa-users mr-1"></i>Anggota
+        </button>
+        <button data-tab="pengumuman" class="tab-btn px-4 py-2 text-sm font-semibold rounded-xl whitespace-nowrap bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-slate-700">
+          <i class="fas fa-bullhorn mr-1"></i>Pengumuman
+        </button>
+        <button data-tab="galeri" class="tab-btn px-4 py-2 text-sm font-semibold rounded-xl whitespace-nowrap bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-slate-700">
+          <i class="fas fa-images mr-1"></i>Galeri
+        </button>
+        <button data-tab="video" class="tab-btn px-4 py-2 text-sm font-semibold rounded-xl whitespace-nowrap bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-slate-700">
+          <i class="fas fa-video mr-1"></i>Video
+        </button>
+        <button data-tab="settings" class="tab-btn px-4 py-2 text-sm font-semibold rounded-xl whitespace-nowrap bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-slate-700">
+          <i class="fas fa-cog mr-1"></i>Pengaturan
+        </button>
+      </nav>
+
+      <!-- TAB: DASHBOARD -->
+      <div id="tab-dashboard" class="tab-content">
+        <h2 class="text-xl font-bold mb-4">Statistik</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md">
+            <i class="fas fa-images text-3xl text-sky-500 mb-2"></i>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Total Foto</p>
+            <p id="statFoto" class="text-2xl font-bold text-slate-900 dark:text-white">0</p>
+          </div>
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md">
+            <i class="fas fa-video text-3xl text-sky-500 mb-2"></i>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Total Video</p>
+            <p id="statVideo" class="text-2xl font-bold text-slate-900 dark:text-white">0</p>
+          </div>
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md col-span-2 md:col-span-1">
+            <i class="fas fa-bullhorn text-3xl text-sky-500 mb-2"></i>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Total Pengumuman</p>
+            <p id="statPengumuman" class="text-2xl font-bold text-slate-900 dark:text-white">0</p>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 rounded-2xl bg-sky-50 dark:bg-slate-800/50 border border-sky-100 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-300">
+          <i class="fas fa-info-circle text-sky-500 mr-1"></i>
+          Semua foto & video diupload langsung dan disimpan di LocalStorage browser. <strong>Video maks 5 MB.</strong>
+        </div>
+      </div>
+
+      <!-- TAB: ANGGOTA -->
+      <div id="tab-anggota" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Profil Anggota</h2>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+
+          <!-- KETUA -->
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md">
+            <h3 class="font-bold mb-3"><i class="fas fa-user-tie text-sky-500 mr-1"></i>Ketua Seksi</h3>
+            <form id="formKetua" class="space-y-3">
+              <div>
+                <label class="block text-sm font-medium mb-1">Nama Lengkap</label>
+                <input id="namaKetuaInput" type="text" required
+                       class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1">Foto (JPG/PNG, maks 1 MB)</label>
+                <input id="fotoKetuaInput" type="file" accept="image/*"
+                       class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm" />
+              </div>
+              <div id="previewKetuaWrap" class="hidden">
+                <img id="previewKetuaImg" class="w-24 h-24 object-cover rounded-full border-2 border-sky-200" alt="Preview Ketua" />
+              </div>
+              <button type="submit" class="w-full py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-md">
+                <i class="fas fa-save mr-1"></i>Simpan Data Ketua
+              </button>
+            </form>
+          </div>
+
+          <!-- WAKIL -->
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md">
+            <h3 class="font-bold mb-3"><i class="fas fa-user-tie text-sky-500 mr-1"></i>Wakil Ketua</h3>
+            <form id="formWakil" class="space-y-3">
+              <div>
+                <label class="block text-sm font-medium mb-1">Nama Lengkap</label>
+                <input id="namaWakilInput" type="text" required
+                       class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1">Foto (JPG/PNG, maks 1 MB)</label>
+                <input id="fotoWakilInput" type="file" accept="image/*"
+                       class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm" />
+              </div>
+              <div id="previewWakilWrap" class="hidden">
+                <img id="previewWakilImg" class="w-24 h-24 object-cover rounded-full border-2 border-sky-200" alt="Preview Wakil" />
+              </div>
+              <button type="submit" class="w-full py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-md">
+                <i class="fas fa-save mr-1"></i>Simpan Data Wakil
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB: PENGUMUMAN -->
+      <div id="tab-pengumuman" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Tambah / Edit Pengumuman</h2>
+
+        <form id="formPengumuman" class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md grid sm:grid-cols-2 gap-4">
+          <input type="hidden" id="pengumumanId" />
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Judul Pengumuman *</label>
+            <input id="pengumumanJudul" type="text" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Kategori *</label>
+            <input id="pengumumanKategori" type="text" required placeholder="Contoh: Kegiatan"
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Tanggal *</label>
+            <input id="pengumumanTanggal" type="date" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Isi Pengumuman *</label>
+            <textarea id="pengumumanIsi" rows="4" required
+                      class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex flex-wrap gap-2">
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-md">
+              <i class="fas fa-paper-plane mr-1"></i>Publikasikan
+            </button>
+            <button type="button" id="resetFormPengumuman" class="px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 font-semibold">
+              Bersihkan
+            </button>
+          </div>
+        </form>
+
+        <h3 class="text-lg font-bold mt-8 mb-3">Daftar Pengumuman</h3>
+        <input id="searchPengumumanAdmin" placeholder="Cari pengumuman..."
+               class="w-full mb-3 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+        <div id="listPengumuman" class="space-y-3"></div>
+      </div>
+
+      <!-- TAB: GALERI -->
+      <div id="tab-galeri" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Tambah Foto</h2>
+
+        <form id="formGaleri" class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Judul Foto *</label>
+            <input id="galeriJudul" type="text" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Tanggal *</label>
+            <input id="galeriTanggal" type="date" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Keterangan</label>
+            <textarea id="galeriDeskripsi" rows="2"
+                      class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">File Foto * (JPG/PNG/WEBP, maks 1 MB)</label>
+            <input id="galeriFile" type="file" accept="image/jpeg,image/jpg,image/png,image/webp"
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm" />
+          </div>
+          <div id="previewGaleri" class="sm:col-span-2 hidden">
+            <p class="text-xs text-slate-500 mb-1">Preview:</p>
+            <img id="previewGaleriImg" class="w-40 h-40 object-cover rounded-xl border border-slate-200 dark:border-slate-700" alt="Preview" />
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-md">
+              <i class="fas fa-plus mr-1"></i>Tambah Foto
+            </button>
+          </div>
+        </form>
+
+        <h3 class="text-lg font-bold mt-8 mb-3">Daftar Foto</h3>
+        <input id="searchGaleriAdmin" placeholder="Cari foto..."
+               class="w-full mb-3 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+        <div id="listGaleri" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"></div>
+      </div>
+
+      <!-- TAB: VIDEO -->
+      <div id="tab-video" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Tambah Video</h2>
+
+        <form id="formVideo" class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Judul Video *</label>
+            <input id="videoJudul" type="text" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Tanggal *</label>
+            <input id="videoTanggal" type="date" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Deskripsi</label>
+            <textarea id="videoDeskripsi" rows="2"
+                      class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">File Video * (maks 5 MB)</label>
+            <input id="videoFile" type="file" accept="video/*" required
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm" />
+            <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">
+              <i class="fas fa-exclamation-triangle mr-1"></i>
+              Maks 5 MB. Video disimpan sebagai Base64 di LocalStorage.
+            </p>
+          </div>
+          <div id="previewVideo" class="sm:col-span-2 hidden">
+            <p class="text-xs text-slate-500 mb-1">Preview:</p>
+            <video id="previewVideoEl" controls class="w-full max-w-md rounded-xl border border-slate-200 dark:border-slate-700"></video>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-md">
+              <i class="fas fa-plus mr-1"></i>Tambah Video
+            </button>
+          </div>
+        </form>
+
+        <h3 class="text-lg font-bold mt-8 mb-3">Daftar Video</h3>
+        <input id="searchVideoAdmin" placeholder="Cari video..."
+               class="w-full mb-3 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+        <div id="listVideo" class="space-y-3"></div>
+      </div>
+
+      <!-- TAB: PENGATURAN -->
+      <div id="tab-settings" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Pengaturan Data</h2>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md">
+            <h3 class="font-bold mb-2"><i class="fas fa-download text-sky-500 mr-1"></i>Export Data</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Unduh seluruh data sebagai file JSON.</p>
+            <button id="exportBtn" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm">Export JSON</button>
+          </div>
+
+          <div class="card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md">
+            <h3 class="font-bold mb-2"><i class="fas fa-upload text-sky-500 mr-1"></i>Import Data</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Kembalikan data dari file JSON.</p>
+            <input id="importFile" type="file" accept="application/json" class="w-full mb-2 text-sm" />
+            <button id="importBtn" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm">Import</button>
+          </div>
+
+          <div class="card bg-white dark:bg-slate-800 border border-red-200 dark:border-red-900/50 rounded-2xl p-5 shadow-md sm:col-span-2">
+            <h3 class="font-bold mb-2 text-red-600 dark:text-red-400"><i class="fas fa-trash mr-1"></i>Reset Semua Data</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Menghapus seluruh data pengumuman, galeri, video, dan anggota.</p>
+            <button id="resetBtn" class="px-4 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white font-semibold text-sm">Reset Semua Data</button>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 text-xs text-amber-800 dark:text-amber-300">
+          <i class="fas fa-shield-halved mr-1"></i>
+          <strong>Catatan:</strong> Sistem login ini menggunakan JavaScript + LocalStorage (client-side). Untuk produksi, gunakan backend seperti PHP + MySQL, Firebase, atau Supabase.
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-6 mt-10 text-center">
+      <p class="text-xs text-slate-500">Admin Panel — SDV Multimedia</p>
+      <a href="#" id="backFromAdmin" class="text-xs text-sky-500 hover:text-sky-400 mt-1 inline-block">
+        <i class="fas fa-arrow-left mr-1"></i>Kembali ke Website
+      </a>
+    </footer>
+  </section>
+</div><!-- /#adminSite -->
+
+<div id="toastContainer" class="toast-container"></div>
+
+
+<script>
+/* ============================================================
+   KONFIGURASI STORAGE
+   Menggunakan IndexedDB (kapasitas ratusan MB) — bukan LocalStorage
+============================================================ */
+const STORAGE_KEYS = {
+  pengumuman: 'pengumuman',
+  galeri:     'galeri',
+  video:      'video',
+  anggota:    'anggota',
+  theme:      'theme' // tetap pakai localStorage (kecil)
+};
+
+// ==========================================
+// LOGIN ADMIN
+// GANTI USERNAME DAN PASSWORD DI SINI
+// ==========================================
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "admin123";
+
+/*
+CATATAN: Login ini client-side, cocok untuk website lokal.
+Untuk produksi gunakan backend.
+*/
+
+/* ============================================================
+   DATA DEFAULT (KOSONG - DIISI VIA ADMIN PANEL)
+============================================================ */
+const DEFAULT_GALERI = [];
+const DEFAULT_VIDEO = [];
+const DEFAULT_PENGUMUMAN = [];
+const DEFAULT_ANGGOTA = {
+  ketua: { nama: 'NAMA KETUA', foto: '' },
+  wakil: { nama: 'NAMA WAKIL', foto: '' }
+};
+
+/* ============================================================
+   INDEXEDDB WRAPPER
+   Pengganti LocalStorage agar kapasitas jauh lebih besar
+============================================================ */
+const DB_NAME = 'publikasi_db';
+const DB_VERSION = 1;
+const DB_STORES = ['pengumuman', 'galeri', 'video', 'anggota'];
+
+let idb = null;
+
+// Data di-cache di memory agar akses tetap sync (cepat)
+const AppData = {
+  pengumuman: DEFAULT_PENGUMUMAN,
+  galeri:     DEFAULT_GALERI,
+  video:      DEFAULT_VIDEO,
+  anggota:    DEFAULT_ANGGOTA
+};
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    if (!window.indexedDB) {
+      reject(new Error('IndexedDB tidak didukung browser ini.'));
+      return;
+    }
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      DB_STORES.forEach(store => {
+        if (!db.objectStoreNames.contains(store)) db.createObjectStore(store);
+      });
+    };
+    req.onsuccess = (e) => { idb = e.target.result; resolve(idb); };
+    req.onerror = (e) => reject(e.target.error);
+  });
+}
+
+function idbGet(store, key) {
+  return new Promise((resolve, reject) => {
+    const tx = idb.transaction(store, 'readonly');
+    const req = tx.objectStore(store).get(key);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function idbSet(store, key, value) {
+  return new Promise((resolve, reject) => {
+    const tx = idb.transaction(store, 'readwrite');
+    const req = tx.objectStore(store).put(value, key);
+    req.onsuccess = () => resolve(true);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function idbClear(store) {
+  return new Promise((resolve, reject) => {
+    const tx = idb.transaction(store, 'readwrite');
+    const req = tx.objectStore(store).clear();
+    req.onsuccess = () => resolve(true);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function initAppData() {
+  try {
+    await openDB();
+    AppData.pengumuman = (await idbGet('pengumuman', 'all')) || DEFAULT_PENGUMUMAN;
+    AppData.galeri     = (await idbGet('galeri', 'all'))     || DEFAULT_GALERI;
+    AppData.video      = (await idbGet('video', 'all'))      || DEFAULT_VIDEO;
+    AppData.anggota    = (await idbGet('anggota', 'all'))    || DEFAULT_ANGGOTA;
+    console.log('IndexedDB berhasil dimuat.');
+  } catch (err) {
+    console.error('IndexedDB init error:', err);
+    showToast('Gagal membuka penyimpanan browser: ' + err.message, 'error', 5000);
+  }
+}
+
+/* ============================================================
+   LOAD & SAVE (API pengganti LocalStorage)
+============================================================ */
+function keyToName(key) {
+  if (DB_STORES.includes(key)) return key;
+  return String(key).replace('publikasi_', '');
+}
+
+function loadData(key, def) {
+  const name = keyToName(key);
+  const data = AppData[name];
+  if (name === 'anggota') return data || def;
+  return Array.isArray(data) ? data : def;
+}
+
+function saveData(key, data) {
+  const name = keyToName(key);
+  AppData[name] = data;
+  idbSet(name, 'all', data).catch(err => {
+    showToast('Gagal menyimpan data: ' + err.message, 'error', 4000);
+  });
+  return true;
+}
+
+async function clearAllStorage() {
+  for (const store of DB_STORES) {
+    try { await idbClear(store); } catch (e) { console.warn(e); }
+  }
+  AppData.pengumuman = DEFAULT_PENGUMUMAN;
+  AppData.galeri = DEFAULT_GALERI;
+  AppData.video = DEFAULT_VIDEO;
+  AppData.anggota = DEFAULT_ANGGOTA;
+  // Bersihkan juga LocalStorage lama (kalau ada sisa dari versi sebelumnya)
+  try { localStorage.clear(); } catch (e) {}
+}
+
+/* ============================================================
+   TOAST
+============================================================ */
+function showToast(message, type = 'info', duration = 3200) {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = 'toast ' + type;
+  let icon = 'fa-circle-info';
+  if (type === 'success') icon = 'fa-circle-check';
+  if (type === 'error')   icon = 'fa-circle-exclamation';
+  toast.innerHTML = `<i class="fas ${icon} mt-0.5"></i><span>${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add('fadeOut');
+    setTimeout(() => toast.remove(), 400);
+  }, duration);
+}
+
+/* ============================================================
+   TEMA
+============================================================ */
+function initTheme() {
+  const saved = localStorage.getItem(STORAGE_KEYS.theme);
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = saved ? saved === 'dark' : prefersDark;
+  if (isDark) document.documentElement.classList.add('dark');
+  else document.documentElement.classList.remove('dark');
+  updateThemeIcons(isDark);
+}
+function updateThemeIcons(isDark) {
+  document.querySelectorAll('.theme-icon').forEach(el => {
+    el.className = isDark ? 'theme-icon fas fa-sun' : 'theme-icon fas fa-moon';
+  });
+}
+function toggleTheme() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem(STORAGE_KEYS.theme, isDark ? 'dark' : 'light');
+  updateThemeIcons(isDark);
+}
+
+/* ============================================================
+   UTIL
+============================================================ */
+function formatTanggal(str) {
+  if (!str) return '-';
+  const d = new Date(str);
+  if (isNaN(d)) return str;
+  const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  return `${d.getDate()} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function avatarSVG() {
+  return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+    <rect width="64" height="64" fill="#7DD3FC"/>
+    <circle cx="32" cy="24" r="10" fill="#FFFFFF"/>
+    <path d="M12 60c0-11 9-20 20-20s20 9 20 20z" fill="#FFFFFF"/>
+  </svg>`;
+}
+
+/* ============================================================
+   PUBLIK - ANGGOTA
+============================================================ */
+function renderAnggota() {
+  const data = loadData(STORAGE_KEYS.anggota, DEFAULT_ANGGOTA);
+  const wrapKetua = document.getElementById('fotoKetuaWrap');
+  const wrapWakil = document.getElementById('fotoWakilWrap');
+  const namaKetuaEl = document.getElementById('namaKetua');
+  const namaWakilEl = document.getElementById('namaWakil');
+
+  if (wrapKetua) {
+    if (data.ketua && data.ketua.foto) {
+      wrapKetua.innerHTML = `<img src="${data.ketua.foto}" alt="Foto Ketua" class="w-full h-full object-cover" />`;
+    } else { wrapKetua.innerHTML = avatarSVG(); }
+  }
+  if (wrapWakil) {
+    if (data.wakil && data.wakil.foto) {
+      wrapWakil.innerHTML = `<img src="${data.wakil.foto}" alt="Foto Wakil" class="w-full h-full object-cover" />`;
+    } else { wrapWakil.innerHTML = avatarSVG(); }
+  }
+  if (namaKetuaEl) namaKetuaEl.textContent = (data.ketua && data.ketua.nama) || 'NAMA KETUA';
+  if (namaWakilEl) namaWakilEl.textContent = (data.wakil && data.wakil.nama) || 'NAMA WAKIL';
+}
+
+/* ============================================================
+   PUBLIK - GALERI
+============================================================ */
+let galeriData = [];
+let galeriFiltered = [];
+let currentPhotoIndex = 0;
+
+function renderGaleri() {
+  const grid = document.getElementById('galeriGrid');
+  const empty = document.getElementById('galeriEmpty');
+  if (!grid) return;
+
+  galeriData = loadData(STORAGE_KEYS.galeri, DEFAULT_GALERI);
+  const keyword = (document.getElementById('searchGaleri')?.value || '').toLowerCase();
+  const sort = document.getElementById('sortGaleri')?.value || 'newest';
+
+  galeriFiltered = galeriData.filter(g =>
+    (g.judul || '').toLowerCase().includes(keyword) ||
+    (g.deskripsi || '').toLowerCase().includes(keyword)
+  );
+  galeriFiltered.sort((a, b) => {
+    const da = new Date(a.tanggal || 0).getTime();
+    const db = new Date(b.tanggal || 0).getTime();
+    return sort === 'newest' ? db - da : da - db;
+  });
+
+  grid.innerHTML = '';
+  if (galeriFiltered.length === 0) {
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+
+  galeriFiltered.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'gallery-item rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition bg-sky-100 dark:bg-slate-800 aspect-square';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.innerHTML = `
+      <img src="${item.src}" alt="${item.judul || 'Foto galeri'}" loading="lazy" class="w-full h-full object-cover" />
+      <div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent z-10">
+        <p class="text-white text-xs font-semibold line-clamp-1">${item.judul || ''}</p>
+      </div>`;
+    card.style.position = 'relative';
+    card.addEventListener('click', () => openGalleryModal(idx));
+    grid.appendChild(card);
+  });
+}
+
+function openGalleryModal(index) {
+  currentPhotoIndex = index;
+  renderGalleryModal('none');
+  document.getElementById('galleryModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderGalleryModal(direction) {
+  const item = galeriFiltered[currentPhotoIndex];
+  if (!item) return;
+  const wrap = document.getElementById('galleryImageWrap');
+  const img = document.getElementById('galleryImage');
+  img.src = item.src || '';
+  img.alt = item.judul || '';
+  wrap.classList.remove('flip-next', 'flip-prev');
+  void wrap.offsetWidth;
+  if (direction === 'next') wrap.classList.add('flip-next');
+  if (direction === 'prev') wrap.classList.add('flip-prev');
+  document.getElementById('galleryTitle').textContent = item.judul || '';
+  document.getElementById('galleryDesc').textContent = item.deskripsi || '';
+  document.getElementById('galleryDate').textContent = item.tanggal ? 'Tanggal: ' + formatTanggal(item.tanggal) : '';
+  document.getElementById('galleryCounter').textContent = `${currentPhotoIndex + 1} / ${galeriFiltered.length}`;
+}
+
+function nextPhoto() {
+  if (galeriFiltered.length === 0) return;
+  currentPhotoIndex = (currentPhotoIndex + 1) % galeriFiltered.length;
+  renderGalleryModal('next');
+}
+function prevPhoto() {
+  if (galeriFiltered.length === 0) return;
+  currentPhotoIndex = (currentPhotoIndex - 1 + galeriFiltered.length) % galeriFiltered.length;
+  renderGalleryModal('prev');
+}
+function closeGalleryModal() {
+  document.getElementById('galleryModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   PUBLIK - VIDEO
+============================================================ */
+function renderVideo() {
+  const grid = document.getElementById('videoGrid');
+  const empty = document.getElementById('videoEmpty');
+  if (!grid) return;
+
+  const data = loadData(STORAGE_KEYS.video, DEFAULT_VIDEO);
+  const keyword = (document.getElementById('searchVideo')?.value || '').toLowerCase();
+  const sort = document.getElementById('sortVideo')?.value || 'newest';
+
+  let list = data.filter(v =>
+    (v.judul || '').toLowerCase().includes(keyword) ||
+    (v.deskripsi || '').toLowerCase().includes(keyword)
+  );
+  list.sort((a, b) => {
+    const da = new Date(a.tanggal || 0).getTime();
+    const db = new Date(b.tanggal || 0).getTime();
+    return sort === 'newest' ? db - da : da - db;
+  });
+
+  grid.innerHTML = '';
+  if (list.length === 0) {
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+
+  list.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition';
+    card.innerHTML = `
+      <div class="aspect-video bg-black">
+        <video controls preload="metadata" class="w-full h-full">
+          <source src="${v.src}" type="video/mp4" />
+        </video>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-slate-900 dark:text-white line-clamp-1">${v.judul || 'Tanpa Judul'}</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 line-clamp-2">${v.deskripsi || ''}</p>
+        <p class="text-xs text-sky-500 mt-2"><i class="far fa-calendar mr-1"></i>${formatTanggal(v.tanggal)}</p>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ============================================================
+   PUBLIK - PENGUMUMAN
+============================================================ */
+function renderPengumuman() {
+  const grid = document.getElementById('pengumumanGrid');
+  const empty = document.getElementById('pengumumanEmpty');
+  if (!grid) return;
+
+  const data = loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN);
+  const keyword = (document.getElementById('searchPengumuman')?.value || '').toLowerCase();
+  const sort = document.getElementById('sortPengumuman')?.value || 'newest';
+
+  let list = data.filter(p =>
+    (p.judul || '').toLowerCase().includes(keyword) ||
+    (p.isi || '').toLowerCase().includes(keyword) ||
+    (p.kategori || '').toLowerCase().includes(keyword)
+  );
+  list.sort((a, b) => {
+    const da = new Date(a.tanggal || 0).getTime();
+    const db = new Date(b.tanggal || 0).getTime();
+    return sort === 'newest' ? db - da : da - db;
+  });
+
+  grid.innerHTML = '';
+  if (list.length === 0) {
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition flex flex-col';
+    card.innerHTML = `
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <span class="inline-block px-2.5 py-0.5 text-xs rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">${p.kategori || 'Umum'}</span>
+        <span class="text-xs text-slate-500 dark:text-slate-400">${formatTanggal(p.tanggal)}</span>
+      </div>
+      <h3 class="font-bold text-slate-900 dark:text-white text-base line-clamp-2">${p.judul || ''}</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 flex-1">${p.isi || ''}</p>
+      <button data-id="${p.id}" class="btn-detail mt-4 self-start text-sm font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700">
+        Baca Selengkapnya <i class="fas fa-arrow-right ml-1 text-xs"></i>
+      </button>`;
+    grid.appendChild(card);
+  });
+
+  grid.querySelectorAll('.btn-detail').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = parseInt(btn.dataset.id, 10);
+      const item = data.find(x => x.id === id);
+      if (item) openPengumumanModal(item);
+    });
+  });
+}
+
+function openPengumumanModal(item) {
+  document.getElementById('pengumumanKategori').textContent = item.kategori || 'Umum';
+  document.getElementById('pengumumanJudul').textContent = item.judul || '';
+  document.getElementById('pengumumanTanggal').textContent = formatTanggal(item.tanggal);
+  document.getElementById('pengumumanIsi').textContent = item.isi || '';
+  document.getElementById('pengumumanModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closePengumumanModal() {
+  document.getElementById('pengumumanModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   ADMIN - SESSION
+============================================================ */
+function isLoggedIn() { return sessionStorage.getItem('adminLoggedIn') === 'true'; }
+function showLogin() {
+  document.getElementById('loginScreen').classList.remove('hidden');
+  document.getElementById('dashboardScreen').classList.add('hidden');
+}
+function showDashboard() {
+  document.getElementById('loginScreen').classList.add('hidden');
+  document.getElementById('dashboardScreen').classList.remove('hidden');
+  refreshAdminAll();
+}
+
+/* ============================================================
+   ADMIN - TABS
+============================================================ */
+function initAdminTabs() {
+  const buttons = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('bg-sky-500', 'text-white');
+        b.classList.add('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700');
+      });
+      btn.classList.add('bg-sky-500', 'text-white');
+      btn.classList.remove('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700');
+      contents.forEach(c => c.classList.add('hidden'));
+      const target = document.getElementById('tab-' + btn.dataset.tab);
+      if (target) target.classList.remove('hidden');
+    });
+  });
+}
+
+/* ============================================================
+   ADMIN - STATISTIK
+============================================================ */
+function updateStatistik() {
+  const galeri = loadData(STORAGE_KEYS.galeri, DEFAULT_GALERI);
+  const video = loadData(STORAGE_KEYS.video, DEFAULT_VIDEO);
+  const pengumuman = loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN);
+  const elF = document.getElementById('statFoto');
+  const elV = document.getElementById('statVideo');
+  const elP = document.getElementById('statPengumuman');
+  if (elF) elF.textContent = galeri.length;
+  if (elV) elV.textContent = video.length;
+  if (elP) elP.textContent = pengumuman.length;
+}
+
+/* ============================================================
+   ADMIN - ANGGOTA
+============================================================ */
+function initFormAnggota() {
+  const data = loadData(STORAGE_KEYS.anggota, DEFAULT_ANGGOTA);
+  document.getElementById('namaKetuaInput').value = data.ketua.nama || '';
+  document.getElementById('namaWakilInput').value = data.wakil.nama || '';
+
+  document.getElementById('fotoKetuaInput')?.addEventListener('change', (e) => {
+    const file = e.target.files[0]; if (!file) return;
+    const r = new FileReader();
+    r.onload = ev => {
+      document.getElementById('previewKetuaImg').src = ev.target.result;
+      document.getElementById('previewKetuaWrap').classList.remove('hidden');
+    };
+    r.readAsDataURL(file);
+  });
+
+  document.getElementById('fotoWakilInput')?.addEventListener('change', (e) => {
+    const file = e.target.files[0]; if (!file) return;
+    const r = new FileReader();
+    r.onload = ev => {
+      document.getElementById('previewWakilImg').src = ev.target.result;
+      document.getElementById('previewWakilWrap').classList.remove('hidden');
+    };
+    r.readAsDataURL(file);
+  });
+
+  document.getElementById('formKetua')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nama = document.getElementById('namaKetuaInput').value.trim();
+    if (!nama) { showToast('Nama ketua wajib diisi.', 'error'); return; }
+    const fileInput = document.getElementById('fotoKetuaInput');
+    const data = loadData(STORAGE_KEYS.anggota, DEFAULT_ANGGOTA);
+    const finish = (foto) => {
+      data.ketua = { nama, foto: foto !== undefined ? foto : (data.ketua.foto || '') };
+      if (saveData(STORAGE_KEYS.anggota, data)) {
+        showToast('Data ketua berhasil disimpan.', 'success');
+        renderAnggota();
+      }
+    };
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      if (!file.type.startsWith('image/')) { showToast('File harus gambar.', 'error'); return; }
+      if (file.size > 2 * 1024 * 1024) { showToast('Foto maks 2 MB.', 'error'); return; }
+      const r = new FileReader();
+      r.onload = ev => finish(ev.target.result);
+      r.readAsDataURL(file);
+    } else { finish(); }
+  });
+
+  document.getElementById('formWakil')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nama = document.getElementById('namaWakilInput').value.trim();
+    if (!nama) { showToast('Nama wakil wajib diisi.', 'error'); return; }
+    const fileInput = document.getElementById('fotoWakilInput');
+    const data = loadData(STORAGE_KEYS.anggota, DEFAULT_ANGGOTA);
+    const finish = (foto) => {
+      data.wakil = { nama, foto: foto !== undefined ? foto : (data.wakil.foto || '') };
+      if (saveData(STORAGE_KEYS.anggota, data)) {
+        showToast('Data wakil berhasil disimpan.', 'success');
+        renderAnggota();
+      }
+    };
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      if (!file.type.startsWith('image/')) { showToast('File harus gambar.', 'error'); return; }
+      if (file.size > 2 * 1024 * 1024) { showToast('Foto maks 2 MB.', 'error'); return; }
+      const r = new FileReader();
+      r.onload = ev => finish(ev.target.result);
+      r.readAsDataURL(file);
+    } else { finish(); }
+  });
+}
+
+/* ============================================================
+   ADMIN - PENGUMUMAN
+============================================================ */
+function renderListPengumuman() {
+  const container = document.getElementById('listPengumuman');
+  if (!container) return;
+  const data = loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN);
+  const keyword = (document.getElementById('searchPengumumanAdmin')?.value || '').toLowerCase();
+  const list = data.filter(p =>
+    (p.judul || '').toLowerCase().includes(keyword) ||
+    (p.isi || '').toLowerCase().includes(keyword) ||
+    (p.kategori || '').toLowerCase().includes(keyword)
+  );
+  list.sort((a, b) => new Date(b.tanggal || 0) - new Date(a.tanggal || 0));
+  container.innerHTML = '';
+  if (list.length === 0) {
+    container.innerHTML = '<p class="text-center text-slate-500 py-6">Belum ada pengumuman.</p>';
+    return;
+  }
+  list.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row sm:items-center gap-3';
+    el.innerHTML = `
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 mb-1 flex-wrap">
+          <span class="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">${p.kategori || 'Umum'}</span>
+          <span class="text-xs text-slate-500">${formatTanggal(p.tanggal)}</span>
+        </div>
+        <p class="font-semibold text-slate-900 dark:text-white truncate">${p.judul}</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-1">${p.isi}</p>
+      </div>
+      <div class="flex gap-2 flex-shrink-0">
+        <button data-id="${p.id}" class="btn-edit-pengumuman px-3 py-2 text-xs rounded-lg bg-sky-50 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 hover:bg-sky-100"><i class="fas fa-pen"></i> Edit</button>
+        <button data-id="${p.id}" class="btn-del-pengumuman px-3 py-2 text-xs rounded-lg bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-100"><i class="fas fa-trash"></i> Hapus</button>
+      </div>`;
+    container.appendChild(el);
+  });
+  container.querySelectorAll('.btn-edit-pengumuman').forEach(btn =>
+    btn.addEventListener('click', () => editPengumuman(parseInt(btn.dataset.id, 10)))
+  );
+  container.querySelectorAll('.btn-del-pengumuman').forEach(btn =>
+    btn.addEventListener('click', () => deletePengumuman(parseInt(btn.dataset.id, 10)))
+  );
+}
+
+function submitPengumuman(e) {
+  e.preventDefault();
+  const id = document.getElementById('pengumumanId').value;
+  const judul = document.getElementById('pengumumanJudul').value.trim();
+  const kategori = document.getElementById('pengumumanKategori').value.trim();
+  const tanggal = document.getElementById('pengumumanTanggal').value;
+  const isi = document.getElementById('pengumumanIsi').value.trim();
+
+  if (!judul || !kategori || !tanggal || !isi) {
+    showToast('Semua field bertanda * wajib diisi.', 'error'); return;
+  }
+  const data = loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN);
+  if (id) {
+    const idx = data.findIndex(x => x.id === parseInt(id, 10));
+    if (idx !== -1) {
+      data[idx] = { ...data[idx], judul, kategori, tanggal, isi };
+      showToast('Pengumuman berhasil diperbarui.', 'success');
+    }
+  } else {
+    const newId = data.length ? Math.max(...data.map(x => x.id)) + 1 : 1;
+    data.push({ id: newId, judul, kategori, tanggal, isi, status: 'Aktif' });
+    showToast('Pengumuman berhasil ditambahkan.', 'success');
+  }
+  saveData(STORAGE_KEYS.pengumuman, data);
+  resetFormPengumuman();
+  refreshAdminAll();
+  renderPengumuman();
+}
+
+function editPengumuman(id) {
+  const data = loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN);
+  const item = data.find(x => x.id === id); if (!item) return;
+  document.getElementById('pengumumanId').value = item.id;
+  document.getElementById('pengumumanJudul').value = item.judul || '';
+  document.getElementById('pengumumanKategori').value = item.kategori || '';
+  document.getElementById('pengumumanTanggal').value = item.tanggal || '';
+  document.getElementById('pengumumanIsi').value = item.isi || '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showToast('Mode edit: ubah data lalu klik Publikasikan.', 'info');
+}
+
+function deletePengumuman(id) {
+  if (!confirm('Apakah Anda yakin ingin menghapus pengumuman ini?')) return;
+  let data = loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN);
+  data = data.filter(x => x.id !== id);
+  saveData(STORAGE_KEYS.pengumuman, data);
+  showToast('Data berhasil dihapus.', 'success');
+  refreshAdminAll();
+  renderPengumuman();
+}
+
+function resetFormPengumuman() {
+  document.getElementById('formPengumuman').reset();
+  document.getElementById('pengumumanId').value = '';
+}
+
+/* ============================================================
+   ADMIN - GALERI
+============================================================ */
+function renderListGaleri() {
+  const container = document.getElementById('listGaleri');
+  if (!container) return;
+  const data = loadData(STORAGE_KEYS.galeri, DEFAULT_GALERI);
+  const keyword = (document.getElementById('searchGaleriAdmin')?.value || '').toLowerCase();
+  const list = data.filter(g =>
+    (g.judul || '').toLowerCase().includes(keyword) ||
+    (g.deskripsi || '').toLowerCase().includes(keyword)
+  );
+  list.sort((a, b) => new Date(b.tanggal || 0) - new Date(a.tanggal || 0));
+  container.innerHTML = '';
+  if (list.length === 0) {
+    container.innerHTML = '<p class="col-span-full text-center text-slate-500 py-6">Belum ada foto.</p>';
+    return;
+  }
+  list.forEach(g => {
+    const el = document.createElement('div');
+    el.className = 'card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm';
+    el.innerHTML = `
+      <div class="aspect-square bg-sky-100 dark:bg-slate-700">
+        <img src="${g.src}" alt="${g.judul || 'Foto'}" loading="lazy" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-3">
+        <p class="font-semibold text-sm text-slate-900 dark:text-white truncate">${g.judul || ''}</p>
+        <p class="text-xs text-slate-500 mt-0.5">${formatTanggal(g.tanggal)}</p>
+        <button data-id="${g.id}" class="btn-del-galeri mt-2 w-full text-xs py-1.5 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-100"><i class="fas fa-trash"></i> Hapus</button>
+      </div>`;
+    container.appendChild(el);
+  });
+  container.querySelectorAll('.btn-del-galeri').forEach(btn =>
+    btn.addEventListener('click', () => deleteGaleri(parseInt(btn.dataset.id, 10)))
+  );
+}
+
+function submitGaleri(e) {
+  e.preventDefault();
+  const judul = document.getElementById('galeriJudul').value.trim();
+  const tanggal = document.getElementById('galeriTanggal').value;
+  const deskripsi = document.getElementById('galeriDeskripsi').value.trim();
+  const fileInput = document.getElementById('galeriFile');
+
+  if (!judul || !tanggal) { showToast('Judul dan tanggal wajib diisi.', 'error'); return; }
+  if (!fileInput.files || fileInput.files.length === 0) { showToast('Silakan pilih file foto.', 'error'); return; }
+
+  const file = fileInput.files[0];
+  const allowed = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+  if (!allowed.includes(file.type)) { showToast('File harus JPG/PNG/WEBP.', 'error'); return; }
+  if (file.size > 3 * 1024 * 1024) { showToast('Foto terlalu besar (> 3 MB). Kompres dulu.', 'error'); return; }
+
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    const imageData = ev.target.result;
+    const data = loadData(STORAGE_KEYS.galeri, DEFAULT_GALERI);
+    const newId = data.length ? Math.max(...data.map(x => x.id)) + 1 : 1;
+    data.push({ id: newId, src: imageData, judul, deskripsi, tanggal });
+    saveData(STORAGE_KEYS.galeri, data);
+    showToast('Foto berhasil ditambahkan.', 'success');
+    document.getElementById('formGaleri').reset();
+    document.getElementById('previewGaleri').classList.add('hidden');
+    refreshAdminAll();
+    renderGaleri();
+  };
+  reader.readAsDataURL(file);
+}
+
+function deleteGaleri(id) {
+  if (!confirm('Apakah Anda yakin ingin menghapus foto ini?')) return;
+  let data = loadData(STORAGE_KEYS.galeri, DEFAULT_GALERI);
+  data = data.filter(x => x.id !== id);
+  saveData(STORAGE_KEYS.galeri, data);
+  showToast('Data berhasil dihapus.', 'success');
+  refreshAdminAll();
+  renderGaleri();
+}
+
+/* ============================================================
+   ADMIN - VIDEO
+============================================================ */
+function renderListVideo() {
+  const container = document.getElementById('listVideo');
+  if (!container) return;
+  const data = loadData(STORAGE_KEYS.video, DEFAULT_VIDEO);
+  const keyword = (document.getElementById('searchVideoAdmin')?.value || '').toLowerCase();
+  const list = data.filter(v =>
+    (v.judul || '').toLowerCase().includes(keyword) ||
+    (v.deskripsi || '').toLowerCase().includes(keyword)
+  );
+  list.sort((a, b) => new Date(b.tanggal || 0) - new Date(a.tanggal || 0));
+  container.innerHTML = '';
+  if (list.length === 0) {
+    container.innerHTML = '<p class="text-center text-slate-500 py-6">Belum ada video.</p>';
+    return;
+  }
+  list.forEach(v => {
+    const el = document.createElement('div');
+    el.className = 'card bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row gap-3';
+    el.innerHTML = `
+      <div class="sm:w-40 aspect-video bg-black rounded-lg overflow-hidden flex-shrink-0">
+        <video class="w-full h-full" controls preload="metadata">
+          <source src="${v.src}" type="video/mp4" />
+        </video>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold text-slate-900 dark:text-white">${v.judul || ''}</p>
+        <p class="text-xs text-slate-500 mt-1">${formatTanggal(v.tanggal)}</p>
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-2">${v.deskripsi || ''}</p>
+        <button data-id="${v.id}" class="btn-del-video mt-3 px-3 py-1.5 text-xs rounded-lg bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-100"><i class="fas fa-trash"></i> Hapus</button>
+      </div>`;
+    container.appendChild(el);
+  });
+  container.querySelectorAll('.btn-del-video').forEach(btn =>
+    btn.addEventListener('click', () => deleteVideo(parseInt(btn.dataset.id, 10)))
+  );
+}
+
+function submitVideo(e) {
+  e.preventDefault();
+  const judul = document.getElementById('videoJudul').value.trim();
+  const tanggal = document.getElementById('videoTanggal').value;
+  const deskripsi = document.getElementById('videoDeskripsi').value.trim();
+  const fileInput = document.getElementById('videoFile');
+
+  if (!judul || !tanggal) { showToast('Judul dan tanggal wajib diisi.', 'error'); return; }
+  if (!fileInput.files || fileInput.files.length === 0) { showToast('Silakan pilih file video.', 'error'); return; }
+
+  const file = fileInput.files[0];
+  if (!file.type.startsWith('video/')) { showToast('File harus video.', 'error'); return; }
+
+  // BATAS VIDEO 5 MB
+  if (file.size > 5 * 1024 * 1024) {
+    showToast('Video terlalu besar (maks 5 MB). Kompres terlebih dahulu.', 'error', 5000);
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    const videoData = ev.target.result;
+    const data = loadData(STORAGE_KEYS.video, DEFAULT_VIDEO);
+    const newId = data.length ? Math.max(...data.map(x => x.id)) + 1 : 1;
+    data.push({ id: newId, src: videoData, judul, deskripsi, tanggal });
+    saveData(STORAGE_KEYS.video, data);
+    showToast('Video berhasil ditambahkan.', 'success');
+    document.getElementById('formVideo').reset();
+    document.getElementById('previewVideo').classList.add('hidden');
+    refreshAdminAll();
+    renderVideo();
+  };
+  reader.readAsDataURL(file);
+}
+
+function deleteVideo(id) {
+  if (!confirm('Apakah Anda yakin ingin menghapus video ini?')) return;
+  let data = loadData(STORAGE_KEYS.video, DEFAULT_VIDEO);
+  data = data.filter(x => x.id !== id);
+  saveData(STORAGE_KEYS.video, data);
+  showToast('Data berhasil dihapus.', 'success');
+  refreshAdminAll();
+  renderVideo();
+}
+
+/* ============================================================
+   ADMIN - EXPORT / IMPORT / RESET
+============================================================ */
+function exportData() {
+  const payload = {
+    pengumuman: loadData(STORAGE_KEYS.pengumuman, DEFAULT_PENGUMUMAN),
+    galeri:     loadData(STORAGE_KEYS.galeri, DEFAULT_GALERI),
+    video:      loadData(STORAGE_KEYS.video, DEFAULT_VIDEO),
+    anggota:    loadData(STORAGE_KEYS.anggota, DEFAULT_ANGGOTA),
+    exportedAt: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'publikasi-multimedia-backup.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data berhasil diexport.', 'success');
+}
+
+function importData() {
+  const input = document.getElementById('importFile');
+  if (!input.files || input.files.length === 0) { showToast('Pilih file JSON dulu.', 'error'); return; }
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    try {
+      const parsed = JSON.parse(ev.target.result);
+      if (parsed.pengumuman) saveData(STORAGE_KEYS.pengumuman, parsed.pengumuman);
+      if (parsed.galeri)     saveData(STORAGE_KEYS.galeri, parsed.galeri);
+      if (parsed.video)      saveData(STORAGE_KEYS.video, parsed.video);
+      if (parsed.anggota)    saveData(STORAGE_KEYS.anggota, parsed.anggota);
+      showToast('Data berhasil diimport.', 'success');
+      refreshAdminAll();
+      renderGaleri(); renderVideo(); renderPengumuman(); renderAnggota();
+    } catch (err) {
+      showToast('File JSON tidak valid.', 'error');
+    }
+  };
+  reader.readAsText(input.files[0]);
+}
+
+async function resetAllData() {
+  if (!confirm('Yakin ingin menghapus SEMUA data?')) return;
+  if (!confirm('Konfirmasi sekali lagi: hapus semua pengumuman, foto, video, dan profil anggota?')) return;
+  await clearAllStorage();
+  showToast('Semua data berhasil direset.', 'success');
+  refreshAdminAll();
+  renderGaleri(); renderVideo(); renderPengumuman(); renderAnggota();
+}
+
+function refreshAdminAll() {
+  updateStatistik();
+  renderListPengumuman();
+  renderListGaleri();
+  renderListVideo();
+}
+
+/* ============================================================
+   ROUTER
+============================================================ */
+function route() {
+  const hash = window.location.hash || '#home';
+  const publicSite = document.getElementById('publicSite');
+  const adminSite = document.getElementById('adminSite');
+
+  if (hash === '#admin') {
+    publicSite.classList.add('hidden');
+    adminSite.classList.remove('hidden');
+    if (isLoggedIn()) showDashboard();
+    else showLogin();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  } else {
+    adminSite.classList.add('hidden');
+    publicSite.classList.remove('hidden');
+    setTimeout(() => {
+      document.querySelectorAll('#publicSite .reveal').forEach(el => el.classList.add('visible'));
+    }, 50);
+  }
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+document.addEventListener('DOMContentLoaded', async () => {
+
+  initTheme();
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => btn.addEventListener('click', toggleTheme));
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('open');
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      hamburger.classList.remove('active'); menu.classList.remove('open');
+    }));
+  }
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) navbar.classList.add('shadow-md');
+      else navbar.classList.remove('shadow-md');
+    });
+  }
+
+  // === PENTING: buka IndexedDB SEBELUM render ===
+  await initAppData();
+
+  // Reveal
+  const revealEls = document.querySelectorAll('#publicSite .reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // Render publik
+  renderAnggota();
+  renderGaleri();
+  renderVideo();
+  renderPengumuman();
+
+  // Search & sort publik
+  ['searchGaleri', 'sortGaleri'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.addEventListener('input', renderGaleri); el.addEventListener('change', renderGaleri); }
+  });
+  ['searchVideo', 'sortVideo'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.addEventListener('input', renderVideo); el.addEventListener('change', renderVideo); }
+  });
+  ['searchPengumuman', 'sortPengumuman'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.addEventListener('input', renderPengumuman); el.addEventListener('change', renderPengumuman); }
+  });
+
+  // Modal galeri
+  document.getElementById('closeGallery')?.addEventListener('click', closeGalleryModal);
+  document.getElementById('nextPhoto')?.addEventListener('click', nextPhoto);
+  document.getElementById('prevPhoto')?.addEventListener('click', prevPhoto);
+  document.getElementById('galleryModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'galleryModal') closeGalleryModal();
+  });
+
+  // Modal pengumuman
+  document.getElementById('closePengumuman')?.addEventListener('click', closePengumumanModal);
+  document.getElementById('pengumumanModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'pengumumanModal') closePengumumanModal();
+  });
+
+  // Keyboard galeri
+  document.addEventListener('keydown', (e) => {
+    const g = document.getElementById('galleryModal');
+    if (!g || !g.classList.contains('show')) return;
+    if (e.key === 'ArrowRight') nextPhoto();
+    if (e.key === 'ArrowLeft')  prevPhoto();
+    if (e.key === 'Escape')     closeGalleryModal();
+  });
+
+  /* ========== ADMIN ========== */
+  initAdminTabs();
+  initFormAnggota();
+
+  // Tombol darurat clear
+  document.getElementById('emergencyClearBtn')?.addEventListener('click', async () => {
+    if (!confirm('Hapus SEMUA data tersimpan (foto, video, pengumuman, anggota)?')) return;
+    await clearAllStorage();
+    showToast('Penyimpanan berhasil dibersihkan.', 'success');
+    refreshAdminAll();
+    renderGaleri(); renderVideo(); renderPengumuman(); renderAnggota();
+  });
+
+  document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const u = document.getElementById('username').value.trim();
+    const p = document.getElementById('password').value;
+    if (u === ADMIN_USERNAME && p === ADMIN_PASSWORD) {
+      sessionStorage.setItem('adminLoggedIn', 'true');
+      showToast('Login berhasil.', 'success');
+      showDashboard();
+    } else {
+      showToast('Username atau password salah.', 'error');
+    }
+  });
+
+  document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    sessionStorage.removeItem('adminLoggedIn');
+    showToast('Anda telah logout.', 'info');
+    setTimeout(showLogin, 300);
+  });
+
+  document.getElementById('backFromLogin')?.addEventListener('click', (e) => {
+    e.preventDefault(); window.location.hash = '';
+  });
+  document.getElementById('backFromAdmin')?.addEventListener('click', (e) => {
+    e.preventDefault(); window.location.hash = '';
+  });
+
+  // Form pengumuman
+  document.getElementById('formPengumuman')?.addEventListener('submit', submitPengumuman);
+  document.getElementById('resetFormPengumuman')?.addEventListener('click', resetFormPengumuman);
+  document.getElementById('searchPengumumanAdmin')?.addEventListener('input', renderListPengumuman);
+
+  // Form galeri
+  document.getElementById('formGaleri')?.addEventListener('submit', submitGaleri);
+  document.getElementById('searchGaleriAdmin')?.addEventListener('input', renderListGaleri);
+  document.getElementById('galeriFile')?.addEventListener('change', (e) => {
+    const file = e.target.files[0]; if (!file) return;
+    const r = new FileReader();
+    r.onload = ev => {
+      document.getElementById('previewGaleriImg').src = ev.target.result;
+      document.getElementById('previewGaleri').classList.remove('hidden');
+    };
+    r.readAsDataURL(file);
+  });
+
+  // Form video
+  document.getElementById('formVideo')?.addEventListener('submit', submitVideo);
+  document.getElementById('searchVideoAdmin')?.addEventListener('input', renderListVideo);
+  document.getElementById('videoFile')?.addEventListener('change', (e) => {
+    const file = e.target.files[0]; if (!file) return;
+    const url = URL.createObjectURL(file);
+    document.getElementById('previewVideoEl').src = url;
+    document.getElementById('previewVideo').classList.remove('hidden');
+  });
+
+  // Export/Import/Reset
+  document.getElementById('exportBtn')?.addEventListener('click', exportData);
+  document.getElementById('importBtn')?.addEventListener('click', importData);
+  document.getElementById('resetBtn')?.addEventListener('click', resetAllData);
+
+  // Router
+  route();
+  window.addEventListener('hashchange', route);
+});
+</script>
+</body>
+</html>
